@@ -55,9 +55,23 @@ Task:
 | 102     | Jane Smith    | Mouse        | 2        |
 | 103     | Emily Clark   | Phone        | 1        |
 
-- In the table above, the **CustomerName** column depends on **OrderID** (a partial dependency), which violates **2NF**. 
+In the table above, the `CustomerName` column depends on `OrderID` (a partial dependency), which violates 2NF. Write an SQL query to transform this table into 2NF by removing partial dependencies. Ensure that each non-key column fully depends on the entire primary key.
 
-- Write an SQL query to transform this table into **2NF** by removing partial dependencies. Ensure that each non-key column fully depends on the entire primary key.
+## ✅ Assignment Completion
+The assignment has been completed, and the SQL queries for both questions are implemented in the `answers.sql` file. Below is a summary of the work done:
 
----
+- **Question 1**: Transformed the `ProductDetail` table into 1NF by creating a new table `ProductDetail_1NF` where each row represents a single product. The multi-valued `Products` column was split into separate rows, and a composite primary key (`OrderID`, `Product`) was used to ensure uniqueness.
+- **Question 2**: Transformed the `OrderDetails` table into 2NF by removing the partial dependency of `CustomerName` on `OrderID`. Created two tables:
+  - `Orders`: Stores `OrderID` and `CustomerName` with `OrderID` as the primary key.
+  - `OrderItems`: Stores `OrderID`, `Product`, and `Quantity` with a composite primary key (`OrderID`, `Product`) and a foreign key referencing `Orders`. 
+
+The queries include comments for clarity and have been structured to work in a MySQL environment.
+
+## 🚀 Next Steps
+- Test the queries in your SQL environment (e.g., MySQL Workbench) to verify they work with the provided database schema.
+- Submit the repository by committing and pushing the changes to GitHub.
+
 Good luck 🚀
+
+## About
+plp-database-module-2025-wk-7a-psd-07 created by GitHub Classroom
